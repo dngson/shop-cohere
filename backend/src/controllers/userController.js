@@ -764,13 +764,13 @@ export const forgotPassword = async (req, res) => {
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'sondanhkg@gmail.com',
-            pass: 'jpmu hxkr nxqe ekle'
+            user: '',
+            pass: ''
           }
         });
 
         const mailOptions = {
-          from: 'sondanhkg@gmail.com',
+          from: '',
           to: email,
           subject: 'Mã xác nhận đặt lại mật khẩu',
           html: `<p>Mã xác nhận đặt lại mật khẩu của bạn là: <b>${otp}</b>. Mã này sẽ hết hạn sau 15 phút.</p>`

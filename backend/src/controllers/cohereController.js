@@ -388,7 +388,7 @@ Trả lời:
 
         // Gửi yêu cầu đến Cohere
         const response = await cohere.chat({
-            model: 'command-r-plus',
+            model: 'command-r-plus-08-2024',
             message: prompt,
             max_tokens: 300,
             temperature: 0.7,
