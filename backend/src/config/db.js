@@ -55,12 +55,14 @@ const connection = mysql.createPool({
   },
 });
 
-try {
-  const conn = await connection.getConnection();
-  console.log("✅ MySQL connected successfully");
-  conn.release();
-} catch (err) {
-  console.error("❌ MySQL connection failed:", err.message);
-}
+(async () => {
+  try {
+    const conn = await pool.getConnection();
+    console.log("✅ MySQL connected successfully");
+    conn.release();
+  } catch (err) {
+    console.error("❌ MySQL connection failed:", err.message);
+  }
+})();
 
 export default connection;
