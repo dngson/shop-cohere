@@ -403,8 +403,8 @@ export const getVoucher = (voucherCode) => {
 }
 
 // Lấy 9 sản phẩm bán chạy nhất hoặc sản phẩm mới nhất nếu chưa đủ
-export const getTopProducts = () => {
-  return new Promise((resolve, reject) => {
+export const getTopProducts = async () => {
+  try {
     const query = `
       (SELECT 
         p.product_id,
@@ -455,11 +455,11 @@ export const getTopProducts = () => {
       LIMIT 9;
     `;
 
-    connection.query(query, (err, results) => {
-      if (err) reject(err);
-      else resolve(results);
-    });
-  });
+    const [results] = await connection.promise().query(query);
+    return results;
+  } catch (err) {
+    throw err;
+  }
 };
 
 // Obtener todos los tamaños disponibles

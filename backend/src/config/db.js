@@ -25,8 +25,8 @@
 
 // export default connection;
 
-// import mysql from "mysql2";
-import mysql from "mysql2/promise";
+import mysql from "mysql2";
+// import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -56,16 +56,16 @@ const connection = mysql.createPool({
   },
 });
 
-async function testDB() {
-  try {
-    const conn = await connection.getConnection();
-    console.log("✅ MySQL connected successfully");
-    conn.release();
-  } catch (err) {
-    console.error("❌ MySQL connection failed:", err.message);
-  }
-}
+// async function testDB() {
+//   try {
+//     const conn = await connection.getConnection();
+//     console.log("✅ MySQL connected successfully");
+//     conn.release();
+//   } catch (err) {
+//     console.error("❌ MySQL connection failed:", err.message);
+//   }
+// }
 
-testDB();
+// testDB();
 
 export default connection;
